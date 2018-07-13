@@ -17,8 +17,10 @@ COPY nginx/conf.d /etc/nginx/conf.d
 COPY php/php.ini /etc/php.ini
 COPY redis/redis /etc/myredis.conf
 
-#将PHP项目文件打进容器NIGNX ROOT
-ADD http://xxxdjfkas.git  /usr/share/nginx/html
+#作为一个发布产品可以先将整个PHP项目打进容器NIGNX ROOT
+#后续的更新看是不是可以借助其他工具进行更新容器宿主主机上映射给容器/usr/share/nginx/html下面的文件
+#ADD http://xxxdjfkas.git  /usr/share/nginx/html
+
 
 
 #将所需文件放到容器中
