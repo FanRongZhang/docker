@@ -50,4 +50,4 @@ EXPOSE 9001
 
 CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
 
-# -v /var/lib/mysql:/var/lib/mysql -v /var/log/nginx:/var/log/nginx -v /var/log/beastalkd:/var/log/beastalkd -p 22:22 -p 80:80 -p 3306:3306 -p 11301:11301
+# -v /var/lib/mysql:/var/lib/mysql -v /var/log/nginx:/var/log/nginx -v /var/log/beastalkd:/var/log/beastalkd -p 2222:22 -p 80:80 -p 3306:3306 -p 11301:11301
