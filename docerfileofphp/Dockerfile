@@ -8,14 +8,16 @@ RUN chown -R nginx:nginx /usr/share/nginx/html &&\
 rm -f /etc/supervisord.conf &&\
 rm -f /etc/nginx/nginx.conf &&\
 rm -rf /etc/nginx/conf.d &&\
-rm -f /etc/php.ini
+rm -f /etc/php.ini &&\
+#nginx ssl 存放路径
+mkdir -p /etc/nginx/ssl
 
 # put my configs into the container
 COPY supervisord.conf /etc/
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/conf.d /etc/nginx/conf.d
 COPY php/php.ini /etc/php.ini
-COPY redis/redis /etc/myredis.conf
+COPY redis/redis.conf /etc/redis.conf
 
 #作为一个发布产品可以先将整个PHP项目打进容器NIGNX ROOT
 #后续的更新看是不是可以借助其他工具进行更新容器宿主主机上映射给容器/usr/share/nginx/html下面的文件
@@ -50,4 +52,4 @@ EXPOSE 9001
 
 CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
 
-# -v /var/lib/mysql:/var/lib/mysql -v /var/log/nginx:/var/log/nginx -v /var/log/beastalkd:/var/log/beastalkd -p 2222:22 -p 80:80 -p 3306:3306 -p 11301:11301
+# --privileged -v /nginx_ssl:/etc/nginx/ssl -v /var/log/supervisor:/var/log/supervisor -v /var/lib/mysql:/var/lib/mysql -v /var/log/nginx:/var/log/nginx -v /var/log/beastalkd:/var/log/beastalkd -p 2222:22 -p 80:80 -p 3306:3306 -p 11301:11301 /usr/sbin/init
