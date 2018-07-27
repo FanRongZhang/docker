@@ -1,7 +1,7 @@
 FROM centos:7.4.1708
 MAINTAINER zhangrongfang superboss01@163.com
 
-LABEL name="CentOS Image for PHP" \
+LABEL name="CentOS Image for PHP7.0" \
     vendor="CentOS" \
     license="GPLv2" \
     build-date="20180713"
@@ -53,9 +53,6 @@ boost libtool boost-devel* libuuid-devel python-sphinx.noarch \
  php70w-xml  \
  php70w-devel\
  libevent-devel\
-&&\
-#安装nginx supervisor mysql beanstalkd redis
-yum -y install nginx supervisor mysql-server mysql beanstalkd redis \
 &&\
 rm -rf /var/cache/yum \
 &&\
