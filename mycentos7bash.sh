@@ -1,15 +1,4 @@
-FROM centos:7.4.1708
-MAINTAINER zhangrongfang superboss01@163.com
-
-LABEL name="CentOS Image for PHP7.0" \
-    vendor="CentOS" \
-    license="GPLv2" \
-    build-date="20180713"
-
-#时间设置
-# 163 yum source
-#PHP7的源  webtatic
-RUN yum clean all && yum makecache && yum install -y wget &&\
+yum clean all && yum makecache && yum install -y wget &&\
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
  wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo &&\
  rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm &&\
@@ -53,10 +42,11 @@ boost libtool boost-devel* libuuid-devel python-sphinx.noarch \
  php70w-pecl-mongodb \
  php70w-xml  \
  php70w-devel\
- libevent-devel\
+ libevent-devel
 &&\
-rm -rf /var/cache/yum \
-&&\
-yum clean all
+#安装常用软件
+nginx supervisor beanstalkd  redis git mysql-server
+#mysql  https://www.cnblogs.com/jorzy/p/8455519.html
 
-CMD ["/bin/bash"]
+
+#备注：php-fpm默认采用apache:apache进行的运行，且php-fpm里面的session.save_path也是apache:root，那么应该将项目的默认用户也设置为apache:apache为最方便的
