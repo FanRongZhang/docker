@@ -42,7 +42,7 @@ boost libtool boost-devel* libuuid-devel python-sphinx.noarch \
  php70w-pecl-mongodb \
  php70w-xml  \
  php70w-devel\
- libevent-devel
+ libevent-devel\
 &&\
 #安装常用软件
 nginx supervisor beanstalkd  redis git mysql-server
