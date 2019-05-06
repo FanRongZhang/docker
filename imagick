@@ -1,4 +1,5 @@
 https://www.cnblogs.com/xingmeng/p/4268043.html
+https://blog.csdn.net/liangxun0712/article/details/79584016
 
 yum install ImageMagick
 yum install ImageMagick-devel
@@ -13,6 +14,16 @@ pecl install imagick
 
 加载imagick到php
 在/etc/php.ini 加上extension=imagick.so
+
+
+imagick依赖软件ghostscript   
+https://www.php.net/manual/zh/imagick.requirements.php  
+https://www.ghostscript.com/download/gsdnld.html
+
+
+wget https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostscript-9.27-linux-x86_64.tgz
+tar -zxvf ghostscript-9.27-linux-x86_64.tgz
+cp ghostscript-9.27-linux-x86_64/gs-927-linux-x86_64 /usr/bin/gs
 
 
 
