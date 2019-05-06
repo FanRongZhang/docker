@@ -1,0 +1,23 @@
+https://www.cnblogs.com/xingmeng/p/4268043.html
+
+yum install ImageMagick
+yum install ImageMagick-devel
+yum install php-pear [for PECL]
+安装php-pear是为了使用pecl 中的 phpize,我这里不需要
+
+yum -y install php-devel  (先前已经安装了，可以不需要）
+yum install gcc  (先前已经安装了，可以不需要）
+
+pecl install imagick
+
+
+加载imagick到php
+在/etc/php.ini 加上extension=imagick.so
+
+
+
+PDF 转 图片 参考网址
+
+https://www.cnblogs.com/walterfong/p/10008596.html
+
+https://www.cnblogs.com/phpworld/p/8027462.html
