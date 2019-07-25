@@ -46,6 +46,8 @@ boost libtool boost-devel* libuuid-devel python-sphinx.noarch \
 &&\
 #安装常用软件
 nginx supervisor beanstalkd  redis git mysql-server
+&&\
+systemctl start supervisord
 #mysql  https://www.cnblogs.com/jorzy/p/8455519.html
 
 
