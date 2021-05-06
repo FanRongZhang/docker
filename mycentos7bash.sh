@@ -2,6 +2,7 @@ yum clean all && yum makecache && yum install -y wget &&\
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
  wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo &&\
  rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm &&\
+ # php 包源
  rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm &&\
  rpm -Uvh http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpm &&\
  yum install epel-release &&\
@@ -23,7 +24,9 @@ python-setuptools dos2unix gperf \
 libevent libevent-devel bzip2-devel ncurses-devel \
 boost libtool boost-devel* libuuid-devel python-sphinx.noarch \
 &&\
-#安装PHP7
+#安装PHP7,还有5.5、5.6、7.0,7.1,7.2也在上面的包源里面
+# 以下安装7.0版本，如果是其他版本，比如5.6，将70w修改为56w即可
+# 具体可 yum search php进行查看
  yum install -y php70w \
  php70w-bcmath \
  php70w-cli \
