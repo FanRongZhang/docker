@@ -55,3 +55,13 @@ systemctl start supervisord
 
 
 #备注：php-fpm默认采用apache:apache进行的运行，且php-fpm里面的session.save_path也是apache:root，那么应该将项目的默认用户也设置为apache:apache为最方便的
+
+# 安装 event for php
+&&\
+pecl install event
+&&\
+echo "extension=event.so" >> /etc/php.d/sockets.ini
+
+# LINUX优化
+# http://doc.workerman.net/appendices/kernel-optimization.html
+
